@@ -1,6 +1,19 @@
 const db = require('../db');
 
 const randomReview = () => {
+
+  let products = [
+    'short sleeve polo',
+    'comfy shorts',
+    'socks (up)',
+    'socks (down)',
+    'pants',
+    'shoes',
+    'long sleeve shirt',
+    'parka',
+    'jacket',
+  ];
+
   let titles = [
     'Great for the price',
     'Great product',
@@ -55,6 +68,7 @@ const randomReview = () => {
   }
 
   return {
+    product: products[Math.floor(Math.random() * products.length)],
     title: titles[Math.floor(Math.random() * titles.length)], //mkv chain thing for title, content, author?
     name: names[Math.floor(Math.random() * titles.length)],
     stars: Math.floor(Math.random() * 6),
