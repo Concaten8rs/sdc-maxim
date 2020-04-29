@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery'; //replace with native fetch
 
 let sampleReview = {
+  product: 'pants',
   title: 'hi',
   name: 'a',
   stars: 4,
@@ -39,6 +40,7 @@ class App extends React.Component {
   get() {
     $.get('http://127.0.0.1:1128/')
       .then((data) => {
+        console.log(data);
         this.setState({
           review: data[0],
         });
