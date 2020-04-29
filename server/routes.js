@@ -18,10 +18,6 @@ router.post('/', (req, res) => {
       err ? res.sendStatus(500) : res.sendStatus(200);
     });
   }, drop = true);
-  // db.save(req.body, (err, data) => {
-  //   console.log(req.body);
-  //   err ? res.sendStatus(500) : res.sendStatus(200);
-  // });
 });
 
 module.exports = router;
