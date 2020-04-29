@@ -1,11 +1,28 @@
 import React from 'react';
 import $ from 'jquery'; //replace with native fetch
 
+let sampleReview = {
+  title: 'hi',
+  name: 'a',
+  stars: 4,
+  verified: true,
+  date: 2,
+  content: 'i dont like',
+  comfort: 1,
+  style: 1.2,
+  value: 5,
+  sizing: 'too small',
+  photo: 'false',
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      review: null,
+      review: {
+        title: 'hi',
+        name: 'a',
+      },
     };
   }
 
@@ -14,7 +31,7 @@ class App extends React.Component {
       url: 'http://127.0.0.1:1128/',
       method: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify([{ textContent: 'bad' }]),
+      data: JSON.stringify([sampleReview]),
       succes: () => console.log('successful post'),
     });
   }
@@ -23,7 +40,7 @@ class App extends React.Component {
     $.get('http://127.0.0.1:1128/')
       .then((data) => {
         this.setState({
-          review: data[0].textContent,
+          review: data[0],
         });
       });
   }
@@ -31,9 +48,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        {console.log(this.state.review)}
         <div onClick={() => this.post()}>post</div>
         <div onClick={() => this.get()}>get</div>
-        {this.state.review}
+        {this.state.review.name}
       </div>
     );
   }

@@ -2,7 +2,17 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
 
 let reviewSchema = mongoose.Schema({
-  textContent: String
+  title: String,
+  name: String,
+  stars: Number,
+  verified: Boolean,
+  date: Number,
+  content: String,
+  comfort: Number,
+  style: Number,
+  value: Number,
+  sizing: String,
+  photo: String,
 });
 
 let Review = mongoose.model('Review', reviewSchema);
@@ -22,9 +32,19 @@ let save = (data, callback) => {
   let reviews = [];
 
   for (let elt of data) {
+    //TODO gotta be a better way to do this
     let review = new Review;
-    console.log(review);
-    review.textContent = elt.textContent;
+    review.title = elt.title;
+    review.name = elt.name;
+    review.stars = elt.stars;
+    review.verified = elt.verified;
+    review.date = elt.date;
+    review.content = elt.content;
+    review.comfort = elt.comfort;
+    review.style = elt.style;
+    review.value = elt.value;
+    review.sizing = elt.sizing;
+    review.photo = elt.photo;
     console.log(review);
     reviews.push(review);
   }
@@ -34,5 +54,10 @@ let save = (data, callback) => {
   });
 };
 
+let drop = () => {
+  Review.collection.drop();
+};
+
 module.exports.save = save;
 module.exports.find = find;
+module.exports.drop = drop;
