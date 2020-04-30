@@ -30,6 +30,10 @@ const randomReview = (reviewText) => {
     'Bea',
   ];
 
+  const randomDate = (start, end) => (
+    new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+  );
+
   const photos = [
     `${AWS.url}/sample-jacket-1.jpg`,
     `${AWS.url}/sample-jacket-2.jpg`,
@@ -50,7 +54,7 @@ const randomReview = (reviewText) => {
     name: names[Math.floor(Math.random() * titles.length)],
     stars: Math.floor(Math.random() * 6),
     verified: [true, false][Math.floor(Math.random() * 2)],
-    date: Math.floor(Math.random() * 16), // can do better here
+    date: randomDate(new Date(1950, 0, 1), new Date()),
     content: reviewText,
     comfort: (Math.random() * 6).toFixed(1),
     style: (Math.random() * 6).toFixed(1),

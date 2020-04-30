@@ -10,7 +10,7 @@ const reviewSchema = mongoose.Schema({
     name: String,
     stars: Number,
     verified: Boolean,
-    date: Number, // convert to date later
+    date: Date,
     content: String,
     comfort: Number,
     style: Number,
