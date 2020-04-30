@@ -1,33 +1,33 @@
 const fs = require('fs');
 
 const cleanFile = (file) => {
-  let fileArr = file.split(' ');
-  fileArr = fileArr.map((word) => (
-    word.replace(/[\W_]/, '').toLowerCase()
-  ));
+  if (typeof file === 'string') {
+    let fileArr = file.split(' ');
+    fileArr = fileArr.map((word) => (
+      word.replace(/[\W_]/, '').toLowerCase()
+    ));
 
-  return fileArr;
+    return fileArr;
+  }
+  return '';
 };
 
-const makeChain = (text1) => {
-  // currently assume text is cleaned
-
-  const text = text1.slice(0, 100000);
-
+const buildModel = (file, callback) => {
   const markovChain = {};
 
-  for (let i = 0; i < text.length - 6; i += 1) {
-    const word = text[i];
-    if (!markovChain[word]) {
-      markovChain[word] = [];
+  const makeChain = (text) => {
+    for (let i = 0; i < text.length - 6; i += 1) {
+      const wdArr = text.slice(i, i + 5);
+      if (wdArr.length === 5) {
+        const word = wdArr.join(' ');
+        if (!markovChain[word]) {
+          markovChain[word] = [];
+        }
+        markovChain[word].push(text[i + 5]);
+      }
     }
-    markovChain[word].push(text.slice(i + 1, i + 5).join(' '));
-  }
+  };
 
-  return markovChain;
-};
-
-const makeModel = (file, len, callback) => {
   fs.readFile(file, (err, text) => {
     if (err) {
       callback(err);
@@ -45,35 +45,41 @@ const makeModel = (file, len, callback) => {
         return {};
       });
 
-      let fullText = '';
-
-      parsedText.forEach((review) => {
-        fullText += review.reviewText;
+      parsedText.slice(0, 10000).forEach((snippet) => {
+        if (typeof snippet.reviewText === 'string' && snippet.reviewText.length > 5) {
+          const cleaned = cleanFile(snippet.reviewText);
+          if (cleaned.length > 5) {
+            makeChain(cleaned);
+          }
+        }
       });
 
-      const cleaned = cleanFile(fullText);
-      const chain = makeChain(cleaned);
-      const words = Object.keys(chain);
-      let sentence = [];
-      let first = words[Math.floor(Math.random() * words.length)];
-
-      for (let i = 0; i < len; i += 1) {
-        if (!chain[first]) {
-          break;
-        }
-
-        const current = chain[first][Math.floor(Math.random() * chain[first].length)];
-        const splitCurrent = current.split(' ');
-        const next = splitCurrent[splitCurrent.length - 1];
-        sentence.push(current);
-        first = next;
-      }
-
-      sentence = sentence.join(' ');
-
-      callback(null, sentence);
+      callback(null, markovChain);
     }
   });
 };
 
-module.exports.makeModel = makeModel;
+const generate = (model, len) => {
+  const markovChain = model;
+  const words = Object.keys(markovChain);
+  let sentence = [];
+  let first = words[Math.floor(Math.random() * words.length)];
+
+  for (let i = 0; i < len; i += 1) {
+    if (!markovChain[first]) {
+      break;
+    }
+
+    const addWord = markovChain[first][Math.floor(Math.random() * markovChain[first].length)];
+    sentence.push(addWord);
+
+    const next = first.split(' ').slice(1, 5).concat(addWord).join(' ');
+    first = next;
+  }
+
+  sentence = sentence.join(' ');
+  return sentence;
+};
+
+module.exports.generate = generate;
+module.exports.buildModel = buildModel;
