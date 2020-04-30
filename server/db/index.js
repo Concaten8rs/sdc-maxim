@@ -22,8 +22,8 @@ const reviewSchema = mongoose.Schema({
 
 const Review = mongoose.model('Review', reviewSchema);
 
-const find = (product = {}, callback) => {
-  Review.find({ product })
+const find = (callback) => {
+  Review.find({})
     .then((data) => {
       const reviews = data.map((review) => (
         review.toObject()
