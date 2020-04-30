@@ -4,7 +4,7 @@ const path = require('path');
 const db = require('./db');
 
 router.get('/', (req, res) => {
-  db.find((err, data) => (
+  db.findAll((err, data) => (
     err ? res.sendStatus(500) : res.json(data)
   ));
 });
@@ -19,23 +19,16 @@ router.get('/reviews/:product', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-router.get('/reviews/:product/stars', (req, res) => {
+router.get('/reviews/stars/:product', (req, res) => {
   db.find(req.params.product, (err, data) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      const stars = [];
-
-      data.forEach((obj) => {
-        stars.push(obj.stars);
-      });
-
-      res.json(stars);
+      res.json(data.stars);
     }
   });
 });
 
 // helpful/not helpful, also report (post)
-
 
 module.exports = router;
