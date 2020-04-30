@@ -2,18 +2,6 @@ const db = require('../db');
 const AWS = require('./config.js');
 
 const randomReview = () => {
-  const products = [
-    'short sleeve polo',
-    'comfy shorts',
-    'socks (up)',
-    'socks (down)',
-    'pants',
-    'shoes',
-    'long sleeve shirt',
-    'parka',
-    'jacket',
-  ];
-
   const titles = [
     'Great for the price',
     'Great product',
@@ -68,7 +56,6 @@ const randomReview = () => {
   }
 
   return {
-    product: products[Math.floor(Math.random() * products.length)],
     title: titles[Math.floor(Math.random() * titles.length)],
     name: names[Math.floor(Math.random() * titles.length)],
     stars: Math.floor(Math.random() * 6),
@@ -83,6 +70,32 @@ const randomReview = () => {
   };
 };
 
+const randomProduct = () => {
+  const products = [
+    'short sleeve polo',
+    'comfy shorts',
+    'socks (up)',
+    'socks (down)',
+    'pants',
+    'shoes',
+    'long sleeve shirt',
+    'parka',
+    'jacket',
+  ];
+
+  const reviews = [];
+
+  for (let i = 0; i < Math.floor(Math.random() * 25) + 1; i += 1) {
+    reviews.push(randomReview());
+  }
+
+  return {
+    product: products[Math.floor(Math.random() * products.length)],
+    stars: Math.floor(Math.random() * 6),
+    reviews,
+  };
+};
+
 const seed = (num, callback, drop = true) => {
   if (drop) {
     db.drop();
@@ -91,7 +104,7 @@ const seed = (num, callback, drop = true) => {
   const reviews = [];
 
   for (let i = 0; i < num; i += 1) {
-    reviews.push(randomReview());
+    reviews.push(randomProduct());
   }
 
   db.save(reviews, (err, data) => (
