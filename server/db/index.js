@@ -22,7 +22,14 @@ const reviewSchema = mongoose.Schema({
 
 const Review = mongoose.model('Review', reviewSchema);
 
-const find = (callback) => {
+const find = (query, callback) => {
+  Review.findById(query)
+    .then((data) => {
+      callback(null, data.toObject());
+    });
+};
+
+const findAll = (callback) => {
   Review.find({})
     .then((data) => {
       const reviews = data.map((review) => (
@@ -52,4 +59,5 @@ const drop = () => {
 
 module.exports.save = save;
 module.exports.find = find;
+module.exports.findAll = findAll;
 module.exports.drop = drop;
