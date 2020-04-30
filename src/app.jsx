@@ -7,7 +7,7 @@ let sampleReview = {
   name: 'a',
   stars: 4,
   verified: true,
-  date: 2,
+  date: new Date(),
   content: 'i dont like',
   comfort: 1,
   style: 1.2,
