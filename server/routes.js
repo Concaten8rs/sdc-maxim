@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const path = require('path');
+
 const utility = require('./lib/utility.js');
+const markov = require('./lib/markov.js');
 
 const db = require('./db');
 
@@ -12,6 +14,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  markov.makeModel(path.join(__dirname, 'lib/reviewData.json'), 5, (err, data) => {
+    console.log(data);
+  });
+
   // seed on post for testing purposes only!
   utility.seed(15, () => {
     db.save(req.body, (err) => (
