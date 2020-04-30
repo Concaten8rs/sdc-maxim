@@ -12,7 +12,7 @@ app.use(cors());
 app.use(parser.json());
 app.use(router);
 
-let port = process.env.PORT || 1128;
+const port = process.env.PORT || 1128;
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);

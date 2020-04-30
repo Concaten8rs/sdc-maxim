@@ -1,8 +1,8 @@
 const db = require('../db');
+const AWS = require('./config.js');
 
 const randomReview = () => {
-
-  let products = [
+  const products = [
     'short sleeve polo',
     'comfy shorts',
     'socks (up)',
@@ -14,7 +14,7 @@ const randomReview = () => {
     'jacket',
   ];
 
-  let titles = [
+  const titles = [
     'Great for the price',
     'Great product',
     'meh',
@@ -24,7 +24,7 @@ const randomReview = () => {
     'terrible',
   ];
 
-  let names = [
+  const names = [
     'Aron',
     'b',
     'Goose',
@@ -39,7 +39,7 @@ const randomReview = () => {
     'Bea',
   ];
 
-  let contents = [
+  const contents = [
     'Bought 3 of these shirts in various colors for my son. He said they are very comfortable and soft.',
     'Great product, fit and finish',
     'These did not fit my husband.',
@@ -52,28 +52,28 @@ const randomReview = () => {
     'whoever made this should feel ashamed',
   ];
 
-  let photos = [
-    'url1',
-    'url2',
-    'url3',
-    'url4',
-    'url5',
+  const photos = [
+    `${AWS.url}/sample-jacket-1.jpg`,
+    `${AWS.url}/sample-jacket-2.jpg`,
+    `${AWS.url}/sample-pants-2.jpg`,
+    `${AWS.url}/sample-shirt-1.jpg`,
+    `${AWS.url}/sample-shirt-2.jpg`,
   ];
 
-  let start = photos.length;
-  let end = 5 * photos.length;
+  const start = photos.length;
+  const end = 5 * photos.length;
 
-  for (let i = start; i < end; i++) {
+  for (let i = start; i < end; i += 1) {
     photos[i] = 'false';
   }
 
   return {
     product: products[Math.floor(Math.random() * products.length)],
-    title: titles[Math.floor(Math.random() * titles.length)], //mkv chain thing for title, content, author?
+    title: titles[Math.floor(Math.random() * titles.length)],
     name: names[Math.floor(Math.random() * titles.length)],
     stars: Math.floor(Math.random() * 6),
     verified: [true, false][Math.floor(Math.random() * 2)],
-    date: Math.floor(Math.random() * 16), //can do better here
+    date: Math.floor(Math.random() * 16), // can do better here
     content: contents[Math.floor(Math.random() * contents.length)],
     comfort: (Math.random() * 6).toFixed(1),
     style: (Math.random() * 6).toFixed(1),
@@ -88,15 +88,15 @@ const seed = (num, callback, drop = true) => {
     db.drop();
   }
 
-  let reviews = [];
+  const reviews = [];
 
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < num; i += 1) {
     reviews.push(randomReview());
   }
 
-  db.save(reviews, (err, data) => {
-    err ? callback(err) : callback(err, data);
-  });
+  db.save(reviews, (err, data) => (
+    err ? callback(err) : callback(err, data)
+  ));
 };
 
 module.exports.seed = seed;

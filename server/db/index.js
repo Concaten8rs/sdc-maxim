@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
 
-let reviewSchema = mongoose.Schema({
+const reviewSchema = mongoose.Schema({
   product: String,
   stars: Number,
   reviews: [{
@@ -9,7 +10,7 @@ let reviewSchema = mongoose.Schema({
     name: String,
     stars: Number,
     verified: Boolean,
-    date: Number, //convert to date later
+    date: Number, // convert to date later
     content: String,
     comfort: Number,
     style: Number,
@@ -19,35 +20,33 @@ let reviewSchema = mongoose.Schema({
   }],
 });
 
-let Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
-let find = (product = {}, callback) => {
-  Review.find({product})
+const find = (product = {}, callback) => {
+  Review.find({ product })
     .then((data) => {
-      let reviews = data.map(review => {
-        return review.toObject();
-      });
-      callback(null, data);
+      const reviews = data.map((review) => (
+        review.toObject()
+      ));
+      callback(null, reviews);
     });
 };
 
-let save = (data, callback) => {
-  console.log('saving');
-  let reviews = [];
+const save = (data, callback) => {
+  const reviews = [];
 
-  for (let elt of data) {
-    let review = new Review;
+  data.forEach((elt) => {
+    let review = new Review();
     review = Object.assign(review, elt);
-
     reviews.push(review);
-  }
-
-  Review.insertMany(reviews, (err, data) => {
-    err ? callback(err) : callback(err, data);
   });
+
+  Review.insertMany(reviews, (err, records) => (
+    err ? callback(err) : callback(err, records)
+  ));
 };
 
-let drop = () => {
+const drop = () => {
   Review.collection.drop();
 };
 
