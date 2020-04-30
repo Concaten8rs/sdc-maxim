@@ -53,7 +53,6 @@ class App extends React.Component {
         {console.log(this.state.review)}
         <div onClick={() => this.post()}>post</div>
         <div onClick={() => this.get()}>get</div>
-        {this.state.review.name}
       </div>
     );
   }
