@@ -1,11 +1,8 @@
 const router = require('express').Router();
 const path = require('path');
 
-const utility = require('./lib/utility.js');
-
 const db = require('./db');
 
-// mock param jacket for testing
 router.get('/', (req, res) => {
   db.find((err, data) => (
     err ? res.sendStatus(500) : res.json(data)
@@ -13,12 +10,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // seed on post for testing purposes only!
-  utility.seed(5, () => {
-    db.save(req.body, (err) => (
-      err ? res.sendStatus(500) : res.sendStatus(200)
-    ));
-  });
+  db.save(req.body, (err) => (
+    err ? res.sendStatus(500) : res.sendStatus(200)
+  ));
 });
 
 router.get('/reviews/:product', (req, res) => {
