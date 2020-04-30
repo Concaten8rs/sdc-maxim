@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 const parser = require('body-parser');
 
 const router = require('./routes.js');
@@ -8,7 +7,6 @@ const router = require('./routes.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '../dist')));
-app.use(cors());
 app.use(parser.json());
 app.use(router);
 
