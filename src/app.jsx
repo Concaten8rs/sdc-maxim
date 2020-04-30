@@ -24,6 +24,7 @@ class App extends React.Component {
         title: 'hi',
         name: 'a',
       },
+      product: '5eab4056f17bded9994b287b',
     };
   }
 
@@ -47,12 +48,20 @@ class App extends React.Component {
       });
   }
 
+  getStars() {
+    console.log('getting in app');
+    $.get(`http://127.0.0.1:1128/reviews/stars/${this.state.product}`)
+      .then((stars) => {
+        console.log(stars);
+      });
+  }
+
   render() {
     return (
       <div>
-        {console.log(this.state.review)}
         <div onClick={() => this.post()}>post</div>
         <div onClick={() => this.get()}>get</div>
+        <div onClick={() => this.getStars()}>stars</div>
       </div>
     );
   }
