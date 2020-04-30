@@ -28,40 +28,30 @@ class App extends React.Component {
     };
   }
 
-  post() {
-    $.ajax({
-      url: 'http://127.0.0.1:1128/',
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify([sampleReview]),
-      succes: () => console.log('successful post'),
-    });
-  }
-
   get() {
-    $.get('http://127.0.0.1:1128/')
-      .then((data) => {
-        console.log(data);
-        this.setState({
-          review: data[0],
-        });
-      });
+    fetch('http://127.0.0.1:1128/')
+      .then((data) => data.json())
+      .then((products) => console.log(products));
   }
 
   getStars() {
-    console.log('getting in app');
-    $.get(`http://127.0.0.1:1128/reviews/stars/${this.state.product}`)
-      .then((stars) => {
-        console.log(stars);
-      });
+    fetch(`http://127.0.0.1:1128/reviews/stars/${this.state.product}`)
+      .then((data) => data.json())
+      .then((stars) => console.log(stars));
+  }
+
+  getReviews() {
+    fetch(`http://127.0.0.1:1128/reviews/${this.state.product}`)
+      .then((data) => data.json())
+      .then((reviews) => console.log(reviews));
   }
 
   render() {
     return (
       <div>
-        <div onClick={() => this.post()}>post</div>
-        <div onClick={() => this.get()}>get</div>
+        <div onClick={() => this.get()}>products</div>
         <div onClick={() => this.getStars()}>stars</div>
+        <div onClick={() => this.getReviews()}>reviews</div>
       </div>
     );
   }

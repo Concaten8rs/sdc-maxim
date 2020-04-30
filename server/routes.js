@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const path = require('path');
 
 const db = require('./db');
 
@@ -16,7 +15,13 @@ router.post('/', (req, res) => {
 });
 
 router.get('/reviews/:product', (req, res) => {
-  res.sendFile(path.join(__dirname, '../src/index.html'));
+  db.find(req.params.product, (err, data) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data.reviews);
+    }
+  });
 });
 
 router.get('/reviews/stars/:product', (req, res) => {
