@@ -1,7 +1,10 @@
+const path = require('path');
+
 const db = require('../db');
 const AWS = require('./config.js');
+const markov = require('./markov.js');
 
-const randomReview = () => {
+const randomReview = (reviewText) => {
   const titles = [
     'Great for the price',
     'Great product',
@@ -27,19 +30,6 @@ const randomReview = () => {
     'Bea',
   ];
 
-  const contents = [
-    'Bought 3 of these shirts in various colors for my son. He said they are very comfortable and soft.',
-    'Great product, fit and finish',
-    'These did not fit my husband.',
-    'had to return to store!!',
-    'I thought it would be larger, but its fine',
-    'Great deal and easy to get',
-    'Looks nice on my handsome husband.',
-    'Well made',
-    'INCREDIBLE value for your money',
-    'whoever made this should feel ashamed',
-  ];
-
   const photos = [
     `${AWS.url}/sample-jacket-1.jpg`,
     `${AWS.url}/sample-jacket-2.jpg`,
@@ -61,7 +51,7 @@ const randomReview = () => {
     stars: Math.floor(Math.random() * 6),
     verified: [true, false][Math.floor(Math.random() * 2)],
     date: Math.floor(Math.random() * 16), // can do better here
-    content: contents[Math.floor(Math.random() * contents.length)],
+    content: reviewText,
     comfort: (Math.random() * 6).toFixed(1),
     style: (Math.random() * 6).toFixed(1),
     value: (Math.random() * 6).toFixed(1),
@@ -70,7 +60,7 @@ const randomReview = () => {
   };
 };
 
-const randomProduct = () => {
+const randomProduct = (reviewTexts) => {
   const products = [
     'short sleeve polo',
     'comfy shorts',
@@ -86,7 +76,7 @@ const randomProduct = () => {
   const reviews = [];
 
   for (let i = 0; i < Math.floor(Math.random() * 25) + 1; i += 1) {
-    reviews.push(randomReview());
+    reviews.push(randomReview(reviewTexts.pop()));
   }
 
   return {
@@ -96,20 +86,26 @@ const randomProduct = () => {
   };
 };
 
-const seed = (num, callback, drop = true) => {
-  if (drop) {
-    db.drop();
-  }
+const seed = (num, callback) => {
+  markov.buildModel(path.join(__dirname, 'reviewData.json'), (err, model) => {
+    const products = [];
 
-  const reviews = [];
+    for (let i = 0; i < num; i += 1) {
+      const reviewTexts = [];
 
-  for (let i = 0; i < num; i += 1) {
-    reviews.push(randomProduct());
-  }
+      const reviewNum = Math.floor(Math.random() * 26);
 
-  db.save(reviews, (err, data) => (
-    err ? callback(err) : callback(err, data)
-  ));
+      for (let j = 0; j < reviewNum; j += 1) {
+        reviewTexts.push(markov.generate(model, 15));
+      }
+
+      products.push(randomProduct(reviewTexts));
+    }
+
+    db.save(products, (error, data) => (
+      err ? callback(error) : callback(error, data)
+    ));
+  });
 };
 
 module.exports.seed = seed;
