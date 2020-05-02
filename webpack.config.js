@@ -10,14 +10,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ],
   },
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist')
-  }
+    path: path.join(__dirname, 'dist'),
+  },
 };
