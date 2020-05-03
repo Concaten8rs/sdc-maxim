@@ -1,14 +1,11 @@
 const express = require('express');
-const path = require('path');
 const parser = require('body-parser');
-const cors = require('cors');
 
 const router = require('./routes.js');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../dist')));
-app.use(cors());
+app.use(express.static('dist'));
 app.use(parser.json());
 app.use(router);
 
