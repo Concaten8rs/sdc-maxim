@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery'; //replace with native fetch
-import Review from './review.jsx';
+import Reviews from './reviews.jsx';
 
 let sampleReview = {
   product: 'pants',
@@ -21,16 +21,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      review: {
-        title: 'hi',
-        name: 'a',
-      },
+      reviews: null,
       product: '5eab4056f17bded9994b287b',
     };
   }
 
   componentDidMount() {
-    console.log('mounted app');
+    this.getReviews();
   }
 
   get() {
@@ -48,16 +45,17 @@ class App extends React.Component {
   getReviews() {
     fetch(`http://127.0.0.1:1128/reviews/${this.state.product}`)
       .then((data) => data.json())
-      .then((reviews) => console.log(reviews));
+      .then((reviews) => {
+        this.setState({
+          reviews,
+        });
+      });
   }
 
   render() {
     return (
       <div>
-        <div onClick={() => this.get()}>products</div>
-        <div onClick={() => this.getStars()}>stars</div>
-        <div onClick={() => this.getReviews()}>reviews</div>
-        <Review title={this.state.review.title} />
+        {this.state.reviews && <Reviews reviews={this.state.reviews} />}
       </div>
     );
   }

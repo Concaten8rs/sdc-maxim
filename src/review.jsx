@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Review = ({title}) => (
-  <div>
-    title: {title}
+const Review = ({review}) => (
+  <div className='review'>
+    title: {review.title}
   </div>
 );
 
