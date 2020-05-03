@@ -57,4 +57,20 @@ module.exports = [
       ],
     },
   },
+  {
+    name: 'style',
+    entry: path.join(__dirname, 'src/styles/styles.css'),
+    output: {
+      filename: 'styles.css',
+      path: path.join(__dirname, 'dist'),
+    },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+      ],
+    },
+  },
 ];
