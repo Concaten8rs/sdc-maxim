@@ -11,7 +11,7 @@ const Review = ({review}) => (
         </div>
         <div className='star-wrapper'>
           <div className='stars'>
-            <div className='stars-top' style={{width: `${review.stars / 5 * 100}%`}}>
+            <div className='stars-top' style={{width: `${review.stars / 5 * 100 - 8}%`}}>
               <span className='star'>★</span>
               <span className='star'>★</span>
               <span className='star'>★</span>
@@ -27,11 +27,11 @@ const Review = ({review}) => (
             </div>
           </div>
           <div className='recommend'>
-            Would recommend
+            Would recommend {review.stars}
           </div>
         </div>
         <div className='reviewer-name'>
-          fred - 3 months ago
+          {review.name} - 3 months ago
         </div>
       </div>
       <div className='review-content'>
