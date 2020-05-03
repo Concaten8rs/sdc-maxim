@@ -11,7 +11,7 @@ const Review = ({review}) => (
         </div>
         <div className='star-wrapper'>
           <div className='stars'>
-            <div className='stars-top' style={{width: '84%'}}>
+            <div className='stars-top' style={{width: `${review.stars / 5 * 100}%`}}>
               <span className='star'>★</span>
               <span className='star'>★</span>
               <span className='star'>★</span>
