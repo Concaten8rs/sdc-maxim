@@ -1,4 +1,5 @@
 import React from 'react';
+import '../dist/styles.css';
 
 //TODO refactor into several components
 const Review = ({review}) => (
