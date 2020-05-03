@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery'; //replace with native fetch
+import Review from './review.jsx';
 
 let sampleReview = {
   product: 'pants',
@@ -28,6 +29,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log('mounted app');
+  }
+
   get() {
     fetch('http://127.0.0.1:1128/')
       .then((data) => data.json())
@@ -52,6 +57,7 @@ class App extends React.Component {
         <div onClick={() => this.get()}>products</div>
         <div onClick={() => this.getStars()}>stars</div>
         <div onClick={() => this.getReviews()}>reviews</div>
+        <Review title={this.state.review.title} />
       </div>
     );
   }
