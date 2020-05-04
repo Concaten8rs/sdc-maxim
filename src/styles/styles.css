@@ -43,6 +43,17 @@
   flex: 1 1 15vh;
 }
 
+.widget-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 45vw;
+  flex-direction: row;
+}
+
+.widget-wrapper > div {
+  flex: 1 1 15vw;
+}
+
 .widget-box {
   display: flex;
   flex-wrap: wrap;
