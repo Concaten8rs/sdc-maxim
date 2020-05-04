@@ -77,21 +77,6 @@
   flex: 1 1 15vw;
 }
 
-/* .widget-wrapper > div {
-  flex: 1 1 15vw;
-} */
-
-/* .widget-box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 15vw;
-  flex-direction: row;
-} */
-
-/* .widget-box > div {
-  flex: 1 1 7w;
-} */
-
 .container {
   display: grid;
 }
