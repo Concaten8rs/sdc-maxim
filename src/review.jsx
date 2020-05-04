@@ -27,7 +27,8 @@ const Review = ({review}) => (
             </div>
           </div>
           <div className='recommend'>
-            Would recommend {review.stars}
+              <img src="check.svg" className='green-filter' ></img>
+            <span className='recommend-text' >Would recommend</span>
           </div>
         </div>
         <div className='reviewer-name'>

@@ -35,12 +35,12 @@
 .star-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 20vw;
+  width: 30vw;
   flex-direction: row;
 }
 
 .star-wrapper > div {
-  flex: 1 1 10vh;
+  flex: 1 1 15vh;
 }
 
 .container {
@@ -61,18 +61,18 @@
 
 .stars {
   unicode-bidi: bidi-override;
-  color: #c5c5c5;
+  color: white;
   font-size: 15px;
   height: 15px;
   width: 100px;
   margin: 0 auto;
   position: relative;
   padding: 0;
-  text-shadow: 0px 1px 0 #a2a2a2;
+  text-shadow: 0px 1px 0 white;
 }
 
 .stars-top {
-  color: rgb(255, 215, 0);;
+  color: rgb(255, 215, 0);
   padding: 0;
   position: absolute;
   z-index: 1;
@@ -92,4 +92,20 @@
   margin-right: 2px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(202, 134, 0);;
+}
+
+.green-filter {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  margin-right: 5px;
+}
+
+.recommend {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.recommend-text {
+  margin-bottom: 15px;
+  text-align: top;
+  vertical-align: 5px;
 }
