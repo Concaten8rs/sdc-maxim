@@ -6,7 +6,7 @@ import Helpful from './helpful.jsx';
 //TODO: remove extraneous divs
 const RightReview = ({review}) => (
   <div className='side-wrapper'>
-    <div className='rating-widgets'>
+    <div className='rating-widgets widget-wrapper'>
       <div>
         <RatingWidget val={review.comfort} type={'Comfort'} />
       </div>
