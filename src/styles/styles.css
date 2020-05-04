@@ -50,9 +50,11 @@
   flex-direction: row;
 }
 
-
-.help-widget-btns > div {
-  flex: 1 1 15vw;
+.widget-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 45vw;
+  flex-direction: row;
 }
 
 .widget-wrapper > div {
@@ -69,6 +71,26 @@
 .widget-box > div {
   flex: 1 1 7w;
 }
+
+
+.help-widget-btns > div {
+  flex: 1 1 15vw;
+}
+
+/* .widget-wrapper > div {
+  flex: 1 1 15vw;
+} */
+
+/* .widget-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 15vw;
+  flex-direction: row;
+} */
+
+/* .widget-box > div {
+  flex: 1 1 7w;
+} */
 
 .container {
   display: grid;
@@ -169,7 +191,7 @@
   font-size: 14px;
   text-align: right;
 }
-  
+
 .widget-text {
   font-size: 14px;
   text-align: left;
