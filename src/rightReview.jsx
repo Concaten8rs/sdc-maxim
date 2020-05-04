@@ -8,13 +8,13 @@ const RightReview = ({review}) => (
   <div className='side-wrapper'>
     <div className='rating-widgets'>
       <div>
-        <RatingWidget val={review.comfort} />
+        <RatingWidget val={review.comfort} type={'Comfort'} />
       </div>
       <div>
-        <RatingWidget val={review.style} />
+        <RatingWidget val={review.style} type={'Style'} />
       </div>
       <div>
-        <RatingWidget val={review.value} />
+        <RatingWidget val={review.value} type={'Value'} />
       </div>
       <div>
         <SizeWidget val={review.sizing} />

@@ -50,8 +50,24 @@
   flex-direction: row;
 }
 
+
 .help-widget-btns > div {
   flex: 1 1 15vw;
+}
+
+.widget-wrapper > div {
+  flex: 1 1 15vw;
+}
+
+.widget-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 15vw;
+  flex-direction: row;
+}
+
+.widget-box > div {
+  flex: 1 1 7w;
 }
 
 .container {
@@ -121,6 +137,7 @@
   vertical-align: 5px;
 }
 
+
 .help-text {
   color: rgb(102, 102, 102);
   margin-top: 12px;
@@ -151,4 +168,22 @@
   background-color: transparent;
   font-size: 14px;
   text-align: right;
+}
+  
+.widget-text {
+  font-size: 14px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.value-text {
+  font-weight: bold;
+}
+
+.rating-text {
+ color: rgb(102, 102, 102);
+}
+
+.size-text {
+  margin-top: 10px;
 }
