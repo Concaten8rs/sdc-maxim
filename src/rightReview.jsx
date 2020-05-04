@@ -1,19 +1,21 @@
 import React from 'react';
+import RatingWidget from './ratingWidget.jsx';
+import SizeWidget from './sizeWidget.jsx';
 
 const RightReview = ({review}) => (
   <div className='side-wrapper'>
   <div className='rating-widgets'>
     <div>
-      {review.comfort}
+      <RatingWidget val={review.comfort} />
     </div>
     <div>
-      {review.style}
+      <RatingWidget val={review.style} />
     </div>
     <div>
-      {review.value}
+      <RatingWidget val={review.value} />
     </div>
     <div>
-      {review.sizing}
+      <SizeWidget val={review.sizing} />
     </div>
   </div>
   <div className='help'>
