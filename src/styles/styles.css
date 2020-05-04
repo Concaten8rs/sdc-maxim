@@ -43,6 +43,17 @@
   flex: 1 1 15vh;
 }
 
+.widget-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 15vw;
+  flex-direction: row;
+}
+
+.widget-box > div {
+  flex: 1 1 7w;
+}
+
 .container {
   display: grid;
 }
@@ -108,4 +119,22 @@
   margin-bottom: 15px;
   text-align: top;
   vertical-align: 5px;
+}
+
+.widget-text {
+  font-size: 14px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.value-text {
+  font-weight: bold;
+}
+
+.rating-text {
+ color: rgb(102, 102, 102);
+}
+
+.size-text {
+  margin-top: 10px;
 }
