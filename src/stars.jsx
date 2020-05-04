@@ -27,3 +27,4 @@ const Stars = ({review}) => (
 );
 
 export default Stars;
+
