@@ -1,7 +1,6 @@
 import React from 'react';
 import Recommend from './recommend.jsx';
 
-//TODO fix star fill percentage
 const Stars = ({review}) => (
   <div className='star-wrapper'>
   <div className='stars'>
