@@ -2,7 +2,6 @@ import React from 'react';
 
 const Recommend = ({review}) => {
 
-  //TODO add a recommend prop to schema, change true to check if that prop=true
   if (review.value < 2.5) {
     return (
       <div className="recommend">

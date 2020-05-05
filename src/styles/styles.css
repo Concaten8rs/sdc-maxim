@@ -203,3 +203,8 @@
 .size-text {
   margin-top: 10px;
 }
+
+.circle-fill {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}

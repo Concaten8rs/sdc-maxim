@@ -3,22 +3,13 @@ import RatingWidget from './ratingWidget.jsx';
 import SizeWidget from './sizeWidget.jsx';
 import Helpful from './helpful.jsx';
 
-//TODO: remove extraneous divs
 const RightReview = ({review}) => (
   <div className='side-wrapper'>
     <div className='rating-widgets widget-wrapper'>
-      <div>
-        <RatingWidget val={review.comfort} type={'Comfort'} />
-      </div>
-      <div>
-        <RatingWidget val={review.style} type={'Style'} />
-      </div>
-      <div>
-        <RatingWidget val={review.value} type={'Value'} />
-      </div>
-      <div>
-        <SizeWidget val={review.sizing} />
-      </div>
+      <RatingWidget val={review.comfort} type={'Comfort'} />
+      <RatingWidget val={review.style} type={'Style'} />
+      <RatingWidget val={review.value} type={'Value'} />
+      <SizeWidget val={review.sizing} />
     </div>
     <Helpful />
   </div>
