@@ -10,14 +10,40 @@ const RatingWidget = ({val, type}) => {
     circleColor = "#E86900";
   }
 
+  const circumference = 2 * 3.1415 * 18;
+  const fillAmount = circumference * (val / 5);
+
   return (
     <div className="widget-box">
       <div>
         <svg height="38" width="38">
-          <circle cx="19" cy="19" r="18" stroke={circleColor} strokeWidth="2" fill="transparent" />
-          <text textAnchor="middle" fill={fillColor} fontSize="14" x="19" y="24.6">
-          {val.toFixed(1)}
-        </text>
+          <circle stroke="#efefef"
+                  strokeWidth="2"
+                  fill="none"
+                  cx="19"
+                  cy="19"
+                  r="18"
+          />
+
+          <circle className="circle-fill"
+                  stroke={circleColor}
+                  strokeWidth="2"
+                  strokeDasharray={`${fillAmount}, ${circumference}`}
+                  strokeLinecap="round"
+                  fill="none"
+                  cx="19"
+                  cy="19"
+                  r="18"
+          />
+
+          <text textAnchor="middle"
+                fill={fillColor}
+                fontSize="14"
+                x="19"
+                y="24.6"
+          >
+            {val.toFixed(1)}
+          </text>
         </svg>
       </div>
 
