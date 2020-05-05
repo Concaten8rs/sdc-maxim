@@ -1,4 +1,5 @@
 import React from 'react';
+import Recommend from './recommend.jsx';
 
 //TODO fix star fill percentage
 const Stars = ({review}) => (
@@ -19,12 +20,8 @@ const Stars = ({review}) => (
       <span className='star'>★</span>
     </div>
   </div>
-  <div className='recommend'>
-      <img src="check.svg" className='green-filter' ></img>
-    <span className='recommend-text' >Would recommend</span>
-  </div>
+  <Recommend review={review} />
 </div>
 );
 
 export default Stars;
-

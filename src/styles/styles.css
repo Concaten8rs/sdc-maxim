@@ -39,8 +39,12 @@
   flex-direction: row;
 }
 
-.star-wrapper > div {
-  flex: 1 1 15vh;
+.stars {
+  flex: 1 1 5vh;
+}
+
+.recommend {
+  flex: 1 1 25vh;
 }
 
 .help-widget-btns {
@@ -130,6 +134,11 @@
 
 .green-filter {
   filter: invert(36%) sepia(36%) saturate(4179%) hue-rotate(118deg) brightness(95%) contrast(103%);
+  margin-right: 5px;
+}
+
+.orange-filter {
+  filter: invert(56%) sepia(24%) saturate(7413%) hue-rotate(339deg) brightness(101%) contrast(101%);
   margin-right: 5px;
 }
 
