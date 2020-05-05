@@ -56,9 +56,9 @@ const randomReview = (reviewText) => {
     verified: [true, false][Math.floor(Math.random() * 2)],
     date: randomDate(new Date(1950, 0, 1), new Date()),
     content: reviewText,
-    comfort: (Math.random() * 6).toFixed(1),
-    style: (Math.random() * 6).toFixed(1),
-    value: (Math.random() * 6).toFixed(1),
+    comfort: Math.min(5.0, (Math.random() * 6).toFixed(1)),
+    style: Math.min(5.0, (Math.random() * 6).toFixed(1)),
+    value: Math.min(5.0, (Math.random() * 6).toFixed(1)),
     sizing: ['too small', 'true to size', 'too big'][Math.floor(Math.random() * 3)],
     photo: photos[Math.floor(Math.random() * photos.length)],
   };
