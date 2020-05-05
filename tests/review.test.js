@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Review from './review.jsx';
+import Review from '../src/review.jsx';
 
 describe('Review component', () => {
-  it('accepts review title props', () => {
-    const wrapper = mount(<Review title={'hi'} />);
-    expect(wrapper.props().title).toEqual('hi');
+  it('accepts review prop', () => {
+    const wrapper = mount(<Review review={{product: 'shoe'}} />);
+    expect(wrapper.props().review.product).toEqual('shoe');
     wrapper.unmount();
   });
 });
