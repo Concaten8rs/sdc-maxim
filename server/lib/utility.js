@@ -54,7 +54,7 @@ const randomReview = (reviewText) => {
     name: names[Math.floor(Math.random() * titles.length)],
     stars: Math.floor(Math.random() * 6),
     verified: [true, false][Math.floor(Math.random() * 2)],
-    date: randomDate(new Date(1950, 0, 1), new Date()),
+    date: randomDate(new Date(2020, 0, 1), new Date()),
     content: reviewText,
     comfort: Math.min(5.0, (Math.random() * 6).toFixed(1)),
     style: Math.min(5.0, (Math.random() * 6).toFixed(1)),

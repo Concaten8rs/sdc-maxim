@@ -1,11 +1,10 @@
 import React from 'react';
 import Recommend from './recommend.jsx';
 
-//TODO fix star fill percentage
 const Stars = ({review}) => (
   <div className='star-wrapper'>
   <div className='stars'>
-    <div className='stars-top' style={{width: `${(review.stars / 5 * 100) - 30}%`}}>
+    <div className='stars-top' style={{width: `${(review.stars / 5 * 100)}%`}}>
       <span className='star'>★</span>
       <span className='star'>★</span>
       <span className='star'>★</span>
