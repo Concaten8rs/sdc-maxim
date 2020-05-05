@@ -2,8 +2,9 @@ import React from 'react';
 import Stars from './stars.jsx';
 
 const LeftReview = ({review}) => {
-  const elapsed = Math.floor((new Date() - review.date) / 86400000);
+  const elapsed = Math.floor((new Date() - new Date(review.date)) / 86400000);
   let displayDate;
+
   if (elapsed === 1) {
     displayDate = `${elapsed} day ago`;
   } else if (elapsed < 30) {
