@@ -3,10 +3,13 @@ import React from 'react';
 const Filter = (props) => (
   <div className="filter-box">
     <button className="filter-button">
+
       <div className="filter-flex">
         <div className="filter-text">
-          sort by
+          <span>sort by</span>
+          <span className="drop-text" >most recent</span>
         </div>
+
         <div className="arrow-holder">
           <div className="filter-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24">
@@ -16,14 +19,18 @@ const Filter = (props) => (
             </svg>
           </div>
         </div>
+
       </div>
     </button>
 
     <button className="filter-button">
       <div className="filter-flex">
+
         <div className="filter-text">
-          filter by
+        <span>filter by</span>
+          <span className="drop-text" >all ratings</span>
         </div>
+
         <div className="arrow-holder">
           <div className="filter-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24">
@@ -33,8 +40,10 @@ const Filter = (props) => (
             </svg>
           </div>
         </div>
+
       </div>
     </button>
+
   </div>
 );
 
