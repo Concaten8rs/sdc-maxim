@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO replace css :active with JS onClick
 const Filter = (props) => (
   <div className="filter-box">
 
