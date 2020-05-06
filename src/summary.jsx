@@ -1,6 +1,8 @@
 import React from 'react';
 import RatingWidget from './ratingWidget.jsx';
 import SizeWidget from './sizeWidget.jsx';
+import SummaryWidget from './summaryWidget.jsx';
+import SummaryStars from './summaryStars.jsx'
 
 const Summary = ({reviews}) => (
   <div className="summary">
@@ -14,7 +16,7 @@ const Summary = ({reviews}) => (
             4.6
           </div>
           <div className="summary-stars">
-            stars
+            <SummaryStars val={4.6} />
           </div>
           <div className="stars-num">
             122 star ratings
@@ -23,7 +25,7 @@ const Summary = ({reviews}) => (
 
         <div className="rating-recommend">
           <div className="rating-circle">
-            circle
+            <SummaryWidget val={94} />
           </div>
           <div className="recommend-percent">
             94% would recommend
