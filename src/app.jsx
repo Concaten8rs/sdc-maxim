@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery'; //replace with native fetch
 import Reviews from './reviews.jsx';
 import Filter from './filter.jsx'
+import Summary from './summary.jsx';
 
 let sampleReview = {
   product: 'pants',
@@ -56,6 +57,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Summary reviews={this.state.reviews} />
         <Filter />
         {this.state.reviews && <Reviews reviews={this.state.reviews} />}
       </div>
