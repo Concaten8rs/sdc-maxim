@@ -491,7 +491,6 @@ ul {
   flex: 1 1 150px;
 }
 
-
 .dash-box {
   width: 150px;
   display: flex;
@@ -499,4 +498,50 @@ ul {
   margin-bottom: 12px;
   text-align: left;
   font-size: 14px;
+}
+
+.summary-wBox {
+  margin: 0 auto;
+  padding-left: 30px;
+}
+
+.summaryStar-container {
+  vertical-align: baseline;
+  white-space: normal;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 35px;
+}
+
+.star-span {
+  display: inline-flex;
+  line-height: normal;
+  position: relative;
+  vertical-align: bottom;
+  font-size: 24px;
+}
+
+.summary-starSVG {
+  height: 24px;
+  width: 120px;
+  overflow: hidden;
+}
+
+.star-mask {
+  width: 92%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  display: block;
+  line-height: normal;
+  font-size: 24px;
+  text-align: center;
+}
+
+.mask-starSVG {
+  height: 24px;
+  width: 120px;
+  overflow: hidden;
 }
