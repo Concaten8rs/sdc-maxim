@@ -254,12 +254,17 @@
 .filter-flex {
   display: flex;
   flex-wrap: wrap;
-  width: 250px;
+  width: 300px;
   flex-direction: row;
 }
 
 .filter-flex > div {
-  flex: 1 1 125px;
+  flex: 1 1 150px;
+}
+
+.drop-text {
+  margin-left: 5px;
+  font-weight: bold;
 }
 
 .filter-arrow {
