@@ -431,7 +431,9 @@ ul {
 }
 
 .summary-stars {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stars-num {
@@ -511,7 +513,7 @@ ul {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 
 .star-span {
