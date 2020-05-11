@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from '../dist/styles.css';
 
-const RatingWidget = ({val, type}) => {
-  let fillColor, circleColor;
+const RatingWidget = ({ val, type }) => {
+  let fillColor;
+  let circleColor;
   if (val > 2.5) {
-    fillColor = "#006601";
-    circleColor = "#008300";
+    fillColor = '#006601';
+    circleColor = '#008300';
   } else {
-    fillColor = "#b85300";
-    circleColor = "#E86900";
+    fillColor = '#b85300';
+    circleColor = '#E86900';
   }
 
   const circumference = 2 * 3.1415 * 18;

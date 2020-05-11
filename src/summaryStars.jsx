@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../dist/styles.css';
 
-const SummaryStars = ({val}) => (
+const SummaryStars = ({ val }) => (
   <div className={styles['summaryStar-container']}>
     <span className={styles['star-span']}>
       <svg size="24" viewBox="0 0 5 50" preserveAspectRatio="xMinYMin meet" className={styles['summary-starSVG']}>

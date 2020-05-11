@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from '../dist/styles.css';
 
-const SummaryWidget = ({val}) => {
+const SummaryWidget = ({ val }) => {
   const radius = 25;
-  let fillColor, circleColor;
+  let fillColor;
+  let circleColor;
   if (val > 50) {
-    fillColor = "#006601";
-    circleColor = "#008300";
+    fillColor = '#006601';
+    circleColor = '#008300';
   } else {
-    fillColor = "#b85300";
-    circleColor = "#E86900";
+    fillColor = '#b85300';
+    circleColor = '#E86900';
   }
 
   const circumference = 2 * 3.1415 * radius;

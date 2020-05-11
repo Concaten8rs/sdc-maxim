@@ -4,9 +4,9 @@ import SizeWidget from './sizeWidget.jsx';
 import Helpful from './helpful.jsx';
 import styles from '../dist/styles.css';
 
-const RightReview = ({review}) => (
+const RightReview = ({ review }) => (
   <div className={styles['side-wrapper']}>
-    <div className={styles['rating-widgets widget-wrapper']}>
+    <div className={`${styles['rating-widgets']} ${styles['widget-wrapper']}`}>
       <RatingWidget val={review.comfort} type={'Comfort'} />
       <RatingWidget val={review.style} type={'Style'} />
       <RatingWidget val={review.value} type={'Value'} />
