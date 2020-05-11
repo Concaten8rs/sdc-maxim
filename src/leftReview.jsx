@@ -2,7 +2,7 @@ import React from 'react';
 import Stars from './stars.jsx';
 import styles from '../dist/styles.css';
 
-const LeftReview = ({review}) => {
+const LeftReview = ({ review }) => {
   const elapsed = Math.floor((new Date() - new Date(review.date)) / 86400000);
   let displayDate;
 

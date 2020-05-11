@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Reviews from './reviews.jsx';
-import Filter from './filter.jsx'
+import Filter from './filter.jsx';
 import Summary from './summary.jsx';
 import styles from '../dist/styles.css';
 

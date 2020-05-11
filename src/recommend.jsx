@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../dist/styles.css';
 
-const Recommend = ({review}) => {
+const Recommend = ({ review }) => {
 
   if (review.value < 2.5) {
     return (
@@ -12,16 +12,16 @@ const Recommend = ({review}) => {
         <span className={styles['recommend-text']} >Would recommend</span>
       </div>
     );
-  } else {
-    return (
-      <div className={styles.recommend}>
-        <svg height="24" width="24" className={styles['orange-filter']}>
-          <path d="M12.032 22.063c5.55 0 10.05-4.5 10.05-10.05 0-5.55-4.5-10.05-10.05-10.05-5.55 0-10.05 4.5-10.05 10.05 0 5.55 4.5 10.05 10.05 10.05zm0 .95c-6.075 0-11-4.925-11-11 0-6.076 4.925-11 11-11s11 4.924 11 11c0 6.075-4.925 11-11 11zM12 10.586l4.243-4.243 1.414 1.414L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586z" fillRule="evenodd"></path>
-        </svg>
-        <span className={styles['recommend-text']} >Would not recommend</span>
-      </div>
-    );
   }
+
+  return (
+    <div className={styles.recommend}>
+      <svg height="24" width="24" className={styles['orange-filter']}>
+        <path d="M12.032 22.063c5.55 0 10.05-4.5 10.05-10.05 0-5.55-4.5-10.05-10.05-10.05-5.55 0-10.05 4.5-10.05 10.05 0 5.55 4.5 10.05 10.05 10.05zm0 .95c-6.075 0-11-4.925-11-11 0-6.076 4.925-11 11-11s11 4.924 11 11c0 6.075-4.925 11-11 11zM12 10.586l4.243-4.243 1.414 1.414L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586z" fillRule="evenodd"></path>
+      </svg>
+      <span className={styles['recommend-text']} >Would not recommend</span>
+    </div>
+  );
 };
 
 export default Recommend;

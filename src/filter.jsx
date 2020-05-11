@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../dist/styles.css';
 
-const Filter = (props) => (
+const Filter = () => (
   <div className={styles['filter-box']}>
 
     <div className={styles.menu}>

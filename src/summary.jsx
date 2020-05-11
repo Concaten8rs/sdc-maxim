@@ -5,7 +5,7 @@ import SummaryWidget from './summaryWidget.jsx';
 import SummaryStars from './summaryStars.jsx';
 import styles from '../dist/styles.css';
 
-const Summary = ({reviews}) => (
+const Summary = () => (
   <div className={styles.summary}>
     <h2 className={styles['summary-title']}>Guest Rating & Reviews</h2>
     <div className={styles['summary-container']}>

@@ -3,7 +3,7 @@ import styles from '../dist/styles.css';
 
 const randomHelp = () => Math.floor(Math.random() * 10);
 
-const Helpful = (props) => (
+const Helpful = () => (
   <div className={styles.help}>
     <div className={styles['help-text']}>
     {randomHelp()} guests found this review helpful. Did you?
