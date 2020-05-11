@@ -1,5 +1,6 @@
 import React from 'react';
 import Stars from './stars.jsx';
+import styles from '../dist/styles.css';
 
 const LeftReview = ({review}) => {
   const elapsed = Math.floor((new Date() - new Date(review.date)) / 86400000);
@@ -16,17 +17,17 @@ const LeftReview = ({review}) => {
   }
 
   return (
-  <div className='side-wrapper'>
-    <div className='header'>
-      <div className='title'>
+  <div className={styles['side-wrapper']}>
+    <div className={styles.header}>
+      <div className={styles.title}>
         {review.title}
       </div>
       <Stars review={review} />
-      <div className='reviewer-name'>
+      <div className={styles['reviewer-name']}>
         {review.name} - {displayDate}
       </div>
     </div>
-    <div className='review-content'>
+    <div className={styles['review-content']}>
       {review.content}
     </div>
   </div>

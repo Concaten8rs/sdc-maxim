@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from '../dist/styles.css';
 
 const SizeWidget = ({val}) => {
 
   if (val === 'true to size') {
     return (
-      <div className="widget-box">
+      <div className={styles['widget-box']}>
         <div>
           <svg height="38" width="38">
 
@@ -23,16 +24,16 @@ const SizeWidget = ({val}) => {
           </svg>
         </div>
 
-        <div className="widget-text">
-          <div className="value-text" >Sizing</div>
-          <div className="rating-text" >{val}</div>
+        <div className={styles['widget-text']}>
+          <div className={styles['value-text']}>Sizing</div>
+          <div className={styles['rating-text']}>{val}</div>
         </div>
 
       </div>
     );
   } else if (val === 'too small') {
     return (
-      <div className="widget-box">
+      <div className={styles['widget-box']}>
         <div>
           <svg height="38" width="38">
 
@@ -50,16 +51,16 @@ const SizeWidget = ({val}) => {
           </svg>
         </div>
 
-        <div className="widget-text">
-          <div className="value-text" >Sizing</div>
-          <div className="rating-text" >{val}</div>
+        <div className={styles['widget-text']}>
+          <div className={styles['value-text']} >Sizing</div>
+          <div className={styles['rating-text']} >{val}</div>
         </div>
 
       </div>
     );
   } else {
     return (
-      <div className="widget-box">
+      <div className={styles['widget-box']}>
         <div>
           <svg height="38" width="38">
 
@@ -77,9 +78,9 @@ const SizeWidget = ({val}) => {
           </svg>
         </div>
 
-        <div className="widget-text">
-          <div className="value-text" >Sizing</div>
-          <div className="rating-text" >{val}</div>
+        <div className={styles['widget-text']}>
+          <div className={styles['value-text']} >Sizing</div>
+          <div className={styles['rating-text']} >{val}</div>
         </div>
 
       </div>

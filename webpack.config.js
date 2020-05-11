@@ -17,6 +17,18 @@ module.exports = [
             },
           },
         },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
+          ],
+        },
       ],
     },
     output: {
@@ -57,6 +69,36 @@ module.exports = [
       ],
     },
   },
+  // {
+  //   name: 'style',
+  //   entry: path.join(__dirname, 'src/styles/styles.css'),
+  //   output: {
+  //     filename: 'styles.css',
+  //     path: path.join(__dirname, 'dist'),
+  //   },
+  //   module: {
+  //     rules: [
+  //       {
+  //         test: /\.css$/,
+  //         use: ['style-loader', 'css-loader'],
+  //       },
+  //     ],
+  //   },
+  // },
+];
+
+/*
+   {
+      loader: require.resolve('css-loader'),
+      options: {
+        importLoaders: 1,
+        modules: true,
+        localIdentName: "[name]__[local]___[hash:base64:5]"
+      },
+    }
+*/
+
+/*
   {
     name: 'style',
     entry: path.join(__dirname, 'src/styles/styles.css'),
@@ -73,4 +115,43 @@ module.exports = [
       ],
     },
   },
-];
+*/
+
+
+/*
+  {
+    test: /\.css$/,
+    loader: 'style-loader',
+  }, {
+    test: /\.css$/,
+    loader: 'css-loader',
+    query: {
+      modules: true,
+      localIdentName: '[name]__[local]___[hash:base64:5]',
+    },
+  },
+
+*/
+
+// {
+//   name: 'styleMod',
+//   entry: path.join(__dirname, 'src/styles/reviews.module.css'),
+//   output: {
+//     filename: 'reviews.module.css',
+//     path: path.join(__dirname, 'dist'),
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.css$/,
+//         use: ['style-loader', {
+//           loader: 'css-loader',
+//           options: {
+//             importLoaders: 1,
+//             modules: true,
+//           },
+//         }],
+//       },
+//     ],
+//   },
+// },

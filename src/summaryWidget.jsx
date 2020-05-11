@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../dist/styles.css';
 
 const SummaryWidget = ({val}) => {
   const radius = 25;
@@ -15,8 +16,8 @@ const SummaryWidget = ({val}) => {
   const fillAmount = circumference * (val / 100);
 
   return (
-    <div className="widget-box">
-      <div className="summary-wBox">
+    <div className={styles['widget-box']}>
+      <div className={styles['summary-wBox']}>
         <svg height="53" width="53">
           <circle stroke="#efefef"
                   strokeWidth="2"
@@ -26,7 +27,7 @@ const SummaryWidget = ({val}) => {
                   r={radius}
           />
 
-          <circle className="circle-fill"
+          <circle className={styles['circle-fill']}
                   stroke={circleColor}
                   strokeWidth="2"
                   strokeDasharray={`${fillAmount}, ${circumference}`}
@@ -48,10 +49,6 @@ const SummaryWidget = ({val}) => {
           </text>
         </svg>
       </div>
-
-      {/* <div className="widget-text" >
-
-      </div> */}
 
     </div>
   );

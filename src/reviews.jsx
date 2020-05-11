@@ -1,5 +1,6 @@
 import React from 'react';
 import Review from './review.jsx';
+import styles from '../dist/styles.css';
 
 const Reviews = ({reviews}) => (
   <div>

@@ -548,7 +548,13 @@ ul {
   overflow: hidden;
 }
 
-.testy {
-  font-size: 40px;
+.test-css {
   color: red;
+  font-size: 40px;
+  text-align: center;
+}
+
+.testc {
+  color: red;
+  font-size: 20px;
 }

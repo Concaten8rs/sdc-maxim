@@ -1,24 +1,25 @@
 import React from 'react';
+import styles from '../dist/styles.css';
 
 const randomHelp = () => Math.floor(Math.random() * 10);
 
 const Helpful = (props) => (
-  <div className='help'>
-    <div className="help-text">
+  <div className={styles.help}>
+    <div className={styles['help-text']}>
     {randomHelp()} guests found this review helpful. Did you?
     </div>
-    <div className="help-widget-btns">
+    <div className={styles['help-widget-btns']}>
       <div>
-        <button type="button" className="help-btn">
+        <button type="button" className={styles['help-btn']}>
           Helpful
         </button>
       </div>
       <div>
-        <button type="button" className="help-btn">
+        <button type="button" className={styles['help-btn']}>
           Not helpful
         </button>
       </div>
-      <div className='report-btn'>
+      <div className={styles['report-btn']}>
       Report review
       </div>
     </div>
