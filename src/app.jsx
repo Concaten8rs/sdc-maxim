@@ -20,7 +20,7 @@ let sampleReview = {
   photo: 'false',
 };
 
-class App extends React.Component {
+class ReviewApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,4 +66,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ReviewApp;
