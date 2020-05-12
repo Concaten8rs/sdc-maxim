@@ -27,6 +27,12 @@ router.get('/reviews/stars/:product', (req, res) => {
   });
 });
 
-// helpful/not helpful, also report (post)
+router.get('/rev', (req, res) => {
+  res.sendFile(path.join(__dirname, '../src/index.html'));
+});
+
+router.get('/rev/bundle.js', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/bundle.js'));
+});
 
 module.exports = router;
