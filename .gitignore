@@ -1,5 +1,4 @@
 node_modules
 /dist/*
 /server/lib/config.js
-/server/lib/reviewData.json
 /coverage/*

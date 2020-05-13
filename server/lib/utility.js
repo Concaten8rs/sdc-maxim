@@ -1,7 +1,7 @@
 const path = require('path');
 
 const db = require('../db');
-const AWS = require('./config.js');
+// const AWS = require('./config.js');
 const markov = require('./markov.js');
 
 const randomReview = (reviewText) => {
@@ -35,11 +35,11 @@ const randomReview = (reviewText) => {
   );
 
   const photos = [
-    `${AWS.url}/sample-jacket-1.jpg`,
-    `${AWS.url}/sample-jacket-2.jpg`,
-    `${AWS.url}/sample-pants-2.jpg`,
-    `${AWS.url}/sample-shirt-1.jpg`,
-    `${AWS.url}/sample-shirt-2.jpg`,
+    `/sample-jacket-1.jpg`,
+    `/sample-jacket-2.jpg`,
+    `/sample-pants-2.jpg`,
+    `/sample-shirt-1.jpg`,
+    `/sample-shirt-2.jpg`,
   ];
 
   const start = photos.length;

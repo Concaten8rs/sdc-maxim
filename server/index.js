@@ -7,6 +7,11 @@ const app = express();
 
 app.use(express.static('dist'));
 app.use(express.static('src/assets'));
+app.use(
+  parser.urlencoded({
+    extended: true,
+  }),
+);
 app.use(parser.json());
 app.use(router);
 
