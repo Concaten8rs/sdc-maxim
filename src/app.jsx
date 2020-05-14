@@ -27,7 +27,6 @@ class ReviewApp extends React.Component {
       reviews: null,
       product: '5ebcceac73418e001ccc318c',
     };
-
   }
 
   componentDidMount() {
