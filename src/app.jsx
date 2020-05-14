@@ -25,26 +25,25 @@ class ReviewApp extends React.Component {
     super(props);
     this.state = {
       reviews: null,
-      product: '5eb1ea590e389d84e186f8c5',
+      product: '5ebcceac73418e001ccc318c',
     };
+
   }
 
   componentDidMount() {
-    console.log('mounting');
-    this.getReviews();
-    this.getAll();
-  }
-
-  this.testing() {
-    console.log('testing');
+    // this.getReviews();
     this.getAll();
   }
 
   getAll() {
-    console.log('getting all');
     fetch('http://127.0.0.1:1128/reviews/all')
       .then((data) => data.json())
-      .then((products) => console.log('products', products));
+      .then((products) => {
+        this.setState({
+          product: products[0]._id,
+          reviews: products[0].reviews,
+        });
+      });
   }
 
   getStars() {
@@ -67,7 +66,6 @@ class ReviewApp extends React.Component {
   render() {
     return (
       <div>
-        <div onClick={() => this.testing()}>clicky</div>
         <Summary reviews={this.state.reviews} />
         <Filter />
         {this.state.reviews && <Reviews reviews={this.state.reviews} />}

@@ -3,11 +3,10 @@ const db = require('../db');
 
 
 const seed = () => {
-  console.log('seeding');
+  db.drop();
   fs.readFile('dbSnapshot.json', (err, products) => {
-    console.log('file read');
-    db.save(products, (error, data) => (
-      err ? console.log('err') : console.log('db seeded')
+    db.save(JSON.parse(products), (error, data) => (
+      error ? console.log('err') : console.log('db seeded')
     ));
   });
 };

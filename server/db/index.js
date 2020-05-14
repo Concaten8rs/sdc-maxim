@@ -10,7 +10,7 @@ const {
 
 const dbConnectUrl = { LOCALURL: `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}` };
 
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
+//mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
 mongoose.connect(dbConnectUrl.LOCALURL);
 
 const reviewSchema = mongoose.Schema({

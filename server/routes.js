@@ -12,7 +12,6 @@ router.get('/reviews/all', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log('all reviews');
       res.json(data);
     }
   });
