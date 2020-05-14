@@ -25,12 +25,18 @@ class ReviewApp extends React.Component {
     super(props);
     this.state = {
       reviews: null,
-      product: '5eb1ea590e389d84e186fb4d',
+      product: '5eb1ea590e389d84e186f8c5',
     };
   }
 
   componentDidMount() {
+    console.log('mounting');
     this.getReviews();
+    this.getAll();
+  }
+
+  this.testing() {
+    console.log('testing');
     this.getAll();
   }
 
@@ -61,6 +67,7 @@ class ReviewApp extends React.Component {
   render() {
     return (
       <div>
+        <div onClick={() => this.testing()}>clicky</div>
         <Summary reviews={this.state.reviews} />
         <Filter />
         {this.state.reviews && <Reviews reviews={this.state.reviews} />}
