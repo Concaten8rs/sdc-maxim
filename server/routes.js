@@ -7,6 +7,17 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
+router.get('/reviews/all', (req, res) => {
+  db.findAll((err, data) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      console.log('all reviews');
+      res.json(data);
+    }
+  });
+});
+
 router.get('/reviews/:product', (req, res) => {
   db.find(req.params.product, (err, data) => {
     if (err) {

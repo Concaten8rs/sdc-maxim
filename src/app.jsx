@@ -31,12 +31,14 @@ class ReviewApp extends React.Component {
 
   componentDidMount() {
     this.getReviews();
+    this.getAll();
   }
 
-  get() {
-    fetch('http://127.0.0.1:1128/')
+  getAll() {
+    console.log('getting all');
+    fetch('http://127.0.0.1:1128/reviews/all')
       .then((data) => data.json())
-      .then((products) => console.log(products));
+      .then((products) => console.log('products', products));
   }
 
   getStars() {
@@ -49,6 +51,7 @@ class ReviewApp extends React.Component {
     fetch(`http://127.0.0.1:1128/reviews/${this.state.product}`)
       .then((data) => data.json())
       .then((reviews) => {
+        console.log('reviews', reviews);
         this.setState({
           reviews,
         });
