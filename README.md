@@ -6,7 +6,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 ## Server API
 
 ### Get product review info
-  * GET `/api/products/:product_id`
+  * GET `/api/products/:product_id/reviews`
 
 **Path Parameters:**
   * `product_id` product id
@@ -39,7 +39,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 ```
 
 ### Add review to product
-  * POST `/api/products/:product_id`
+  * POST `/api/products/:product_id/reviews`
 
 **Success Status Code:** `201`
 
@@ -64,7 +64,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 
 ### Update review info
-  * PATCH `/api/products/:product_id/:review_id`
+  * PATCH `/api/products/:product_id/reviews/:review_id`
 
 **Path Parameters:**
   * `product_id` product id
@@ -93,7 +93,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 ```
 
 ### Delete review from product
-  * DELETE `/api/products/:product_id/:review_id`
+  * DELETE `/api/products/:product_id/reviews/:review_id`
 
 **Path Parameters:**
   * `product_id` product id
