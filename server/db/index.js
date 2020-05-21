@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-dotenv.config();
-const {
-  MONGO_HOSTNAME,
-  MONGO_DB,
-  MONGO_PORT,
-} = process.env;
-
-const dbConnectUrl = { LOCALURL: `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}` };
+// dotenv.config();
+// const {
+//   MONGO_HOSTNAME,
+//   MONGO_DB,
+//   MONGO_PORT,
+// } = process.env;
+// console.log("info:", MONGO_HOSTNAME, MONGO_DB, MONGO_PORT)
+// const dbConnectUrl = { LOCALURL: `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}` };
 
 // mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
-mongoose.connect(dbConnectUrl.LOCALURL);
+// mongoose.connect(dbConnectUrl.LOCALURL);
+mongoose.connect("mongodb://127.0.0.1:27017/fetcher");
 
 const reviewSchema = mongoose.Schema({
   product: String,
