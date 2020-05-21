@@ -10,7 +10,8 @@
     "client:start": "webpack-dev-server --open",
     "server:dev": "nodemon ./server/index.js",
     "server:start": "node ./dist/server.js",
-    "seed": "node ./server/lib/seedDatabase.js"
+    "seed": "node ./server/lib/seedDatabase.js",
+    "seed_static": "node ./server/lib/seedStatic.js"
   },
   "repository": {
     "type": "git",
