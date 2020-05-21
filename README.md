@@ -5,11 +5,11 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 ## Server API
 
-### Get restaurant info
-  * GET `/api/restaurants/:id`
+### Get product review info
+  * GET `/api/products/:product_id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `product_id` product id
 
 **Success Status Code:** `200`
 
@@ -17,17 +17,29 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 ```json
     {
-      "id": "Number",
+    "product_id": "Number",
+    "product_name": "String",
+    "product_stars": "Number",
+    "reviews" : [{
+      "review_id": "Number",
+      "title": "String",
       "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "cost": "Number"
+      "stars": "Number",
+      "verified": "Boolean",
+      "date": "Date",
+      "content": "String",
+      "comfort": "Number",
+      "style": "Number",
+      "value": "Number",
+      "sizing": "String",
+      "photo": "String"
+    }]
+
     }
 ```
 
-### Add restaurant
-  * POST `/api/restaurants`
+### Add review to product
+  * POST `/api/products/:product_id`
 
 **Success Status Code:** `201`
 
@@ -35,21 +47,28 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 ```json
     {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "googleMap": "String location",
-      "cost": "Number"
+    "product_id": "Number",
+    "title": "String",
+    "name": "String",
+    "stars": "Number",
+    "verified": "Boolean",
+    "date": "Date",
+    "content": "String",
+    "comfort": "Number",
+    "style": "Number",
+    "value": "Number",
+    "sizing": "String",
+    "photo": "String",
     }
 ```
 
 
-### Update restaurant info
-  * PATCH `/api/restaurant/:id`
+### Update review info
+  * PATCH `/api/products/:product_id/:review_id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `product_id` product id
+  * `review_id` review id
 
 **Success Status Code:** `204`
 
@@ -57,42 +76,27 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 ```json
     {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "cost": "Number"
+    "product_id": "Number",
+    "review_id": "Number",
+    "title": "String",
+    "name": "String",
+    "stars": "Number",
+    "verified": "Boolean",
+    "date": "Date",
+    "content": "String",
+    "comfort": "Number",
+    "style": "Number",
+    "value": "Number",
+    "sizing": "String",
+    "photo": "String",
     }
 ```
 
-### Delete restaurant
-  * DELETE `/api/restaurant/:id`
+### Delete review from product
+  * DELETE `/api/products/:product_id/:review_id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `product_id` product id
+  * `review_id` review id
 
 **Success Status Code:** `204`
-
-### Add image to restaurant
-  * POST `/api/restaurants/:restaurantId/images`
-
-**Path Parameters:**
-
-  * `restaurantId` restaurant id
-
-**Success Status Code:** `201`
-
-**Request Body**: Expects JSON with the following keys.
-
-```json
-    {
-      "user": "String",
-      "image": "image URL",
-      "description": "String",
-      "posted": "YYYY-MM-MM",
-      "googleMap": "String location",
-      "category": "String",
-      "restaurant": "id Number",
-      "cost": "Number"
-    }
-```
