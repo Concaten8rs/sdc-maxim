@@ -17,11 +17,11 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 ```json
     {
-    "product_id": "Number",
+    "product_id": "UUID",
     "product_name": "String",
     "product_stars": "Number",
     "reviews" : [{
-      "review_id": "Number",
+      "review_id": "UUID",
       "title": "String",
       "name": "String",
       "stars": "Number",
@@ -64,7 +64,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 
 
 ### Update review info
-  * PATCH `/api/products/:product_id/reviews/:review_id`
+  * PATCH `/api/reviews/:review_id`
 
 **Path Parameters:**
   * `product_id` product id
@@ -93,7 +93,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
 ```
 
 ### Delete review from product
-  * DELETE `/api/products/:product_id/reviews/:review_id`
+  * DELETE `/api/reviews/:review_id`
 
 **Path Parameters:**
   * `product_id` product id
