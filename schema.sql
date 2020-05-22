@@ -14,11 +14,11 @@ CREATE TABLE products
 CREATE TABLE reviews
 (
   review_id SERIAL PRIMARY KEY,
-  product_id INTEGER REFERENCES products(product_id),
+  product_id INTEGER,
   title VARCHAR(100),
-  username VARCHAR(40) REFERENCES users(username),
+  username VARCHAR(40),
   stars SMALLINT,
-  verified BOOLEAN REFERENCES users(verified),
+  verified BOOLEAN,
   date DATE,
   content TEXT,
   comfort SMALLINT,
