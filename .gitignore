@@ -2,3 +2,6 @@ node_modules
 /dist/*
 /server/lib/config.js
 /coverage/*
+
+*.csv
+/sdc-server/lib/data

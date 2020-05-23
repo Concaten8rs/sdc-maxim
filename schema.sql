@@ -24,7 +24,7 @@ CREATE TABLE reviews
   comfort SMALLINT,
   style SMALLINT,
   value SMALLINT,
-  sizing VARCHAR(10),
+  sizing VARCHAR(20),
   photo VARCHAR(300)
 );
 
