@@ -6,7 +6,7 @@ CREATE DATABASE target_reviews;
 
 CREATE TABLE products
 (
-  product_id SERIAL PRIMARY KEY,
+  product_id INT PRIMARY KEY,
   product_name VARCHAR(100) NOT NULL,
   product_stars SMALLINT
 );
