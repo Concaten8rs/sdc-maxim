@@ -12,7 +12,7 @@ const pseudoRandomVerified = [true, false, false, false, true, true, true, false
 const rowHeader = `product_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo\n`;
 file.write(rowHeader);
 
-for (var i = 1; i <= 100; i++) {
+for (var i = 1; i <= 10000000; i++) {
   for (var j = 0; j <= pseudoRandomRatingAmount[i % 10]; j++) {
     const row = `${i},${faker.company.catchPhrase()},${faker.internet.userName()},${pseudoRandomStarRating[j % 10]},${pseudoRandomVerified[j % 10]},${faker.date.between('2020-01-01', '2020-05-05').toString().replace(/G.+/g, 'PST')},${faker.lorem.words()},${pseudoRandomOutOf5[j % 10]},${pseudoRandomOutOf5[j % 5]},${pseudoRandomOutOf5copy[j%10]},${pseudoRandomSizing[j % 10]},https://loremflickr.com/200/200/clothing?random=${i+j}\n`
     file.write(row);
