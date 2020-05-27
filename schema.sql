@@ -37,7 +37,9 @@ CREATE TABLE users
 
 COPY products (product_id,product_name,product_stars) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/psqlProductData.csv' DELIMITER ',' CSV HEADER;
 
-COPY reviews (product_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/psqlReviewData.csv' DELIMITER ',' CSV HEADER;
+COPY reviews (product_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/psqlReviewData1.csv' DELIMITER ',' CSV HEADER;
+
+COPY reviews (product_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/psqlReviewData2.csv' DELIMITER ',' CSV HEADER;
 
 -- ALTER TABLE reviews FOREIGN KEY
 -- (product_id) REFERENCES products

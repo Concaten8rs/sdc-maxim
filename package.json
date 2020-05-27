@@ -12,7 +12,10 @@
     "server:start": "node ./dist/server.js",
     "seed:mongo": "node ./server/lib/seedDatabase.js",
     "seedStatic:mongo": "node ./server/lib/seedStatic.js",
-    "seed:psql": "psql -U postgres < schema.sql"
+    "seed:psql": "psql -U postgres < schema.sql",
+    "seed:cql": "",
+    "genData:psql": "",
+    "genData:cql": "node ./sdc-server/lib/generators/cqlProductsData.js && node ./sdc-server/lib/generators/cqlReviewsData1.js && node ./sdc-server/lib/generators/cqlReviewsData2.js"
   },
   "repository": {
     "type": "git",
