@@ -12,6 +12,8 @@ const pseudoRandomYear = ['2017', '2018', '2019', '2020'];
 const pseudoRandomMonth = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 const pseudoRandomDay = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
 
+`${pseudoRandomYear[(i + j) % 4] }-${ pseudoRandomMonth[(i + j) % 12] } -${ pseudoRandomDay[(i + j) % 30] }`
+
 const rowHeader = `product_id,review_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo\n`;
 file.write(rowHeader);
 

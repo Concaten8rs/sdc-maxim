@@ -41,6 +41,4 @@ COPY reviews (product_id,title,username,stars,verified,date,content,comfort,styl
 
 COPY reviews (product_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/psqlReviewData2.csv' DELIMITER ',' CSV HEADER;
 
--- ALTER TABLE reviews FOREIGN KEY
--- (product_id) REFERENCES products
--- (product_id);
+ALTER TABLE reviews ADD CONSTRAINT fk_reviews_products FOREIGN KEY (product_id) REFERENCES products (product_id);
