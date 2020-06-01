@@ -10,6 +10,7 @@
     "client:start": "webpack-dev-server --open",
     "server:dev": "nodemon ./server/index.js",
     "server:start": "node ./dist/server.js",
+    "server:dev:sdc": "nodemon ./sdc-server/index.js",
     "seed:mongo": "node ./server/lib/seedDatabase.js",
     "seedStatic:mongo": "node ./server/lib/seedStatic.js",
     "seed:psql": "psql -U postgres < schema.sql",
@@ -45,6 +46,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
+    "newrelic": "^6.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.0"

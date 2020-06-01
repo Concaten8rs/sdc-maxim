@@ -1,34 +1,38 @@
 const router = require('express').Router();
 const path = require('path');
 
+const db = require('./db/index.js');
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-router.get('/reviews/all', (req, res) => {
-
-});
-
-router.get('/reviews/:product', (req, res) => {
-  db.find(req.params.product, (err, data) => {
+router.get('/api/products/:product_id/reviews', (req, res) => {
+  const productID = req.params.product_id;
+  const query = `SELECT * FROM reviews WHERE product_id = ?`
+  db.execute(query, [productID], {prepare: true}, (err, data) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data.reviews);
+      res.status(200).json(data.rows);
     }
   });
 });
 
-router.get('/reviews/stars/:product', (req, res) => {
-  db.find(req.params.product, (err, data) => {
+router.post('/api/products/:product_id/reviews', (req, res) => {
+  const reviewData = req.body;
+  const productID = req.params.product_id;
+  const query = `INSERT INTO reviews (product_id, title, username, stars, verified, date, content, comfort, style, value, sizing, photo) VALUES (?, ${reviewData.title}, ${reviewData.username}, ${reviewData.stars}, ${reviewData.verified}, ${reviewData.date}, ${reviewData.content}, ${reviewData.comfort}, ${reviewData.style}, ${reviewData.value}, ${reviewData.sizing}, ${reviewData.photo})`
+  db.execute(query, [productID], { prepare: true }, (err, data) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data.stars);
+      res.sendStatus(200);
     }
   });
 });
+
+// insert patch and delete routes
 
 router.get('/rev', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
