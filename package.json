@@ -17,7 +17,7 @@
     "seed:cql": "",
     "genData:psql": "",
     "genData:cql": "node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlProductsData.js && node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlReviewsData1.js && node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlReviewsData2.js",
-    "k6": "k6 run load-testing/k6.js --vus 500 --duration 30s"
+    "k6": "k6 run load-testing/k6.js --vus 100 --duration 60s"
   },
   "repository": {
     "type": "git",
