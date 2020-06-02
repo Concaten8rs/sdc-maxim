@@ -49,7 +49,7 @@ This service uses an express server, a mongoDB+mongoose database, and a react fr
     {
     "product_id": "Number",
     "title": "String",
-    "name": "String",
+    "username": "String",
     "stars": "Number",
     "verified": "Boolean",
     "date": "Date",

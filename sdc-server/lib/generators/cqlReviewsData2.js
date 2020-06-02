@@ -33,7 +33,7 @@ function writeNTimes(n, writer, encoding, callback) {
       } else {
         if (id % 100000 === 0) {
           let percentComplete = id / 100000
-          console.log(`successfully wrote through product ID: ${id}, ${percentComplete}% complete`);
+          console.log(`successfully wrote through product ID: ${id}, ${percentComplete}% complete (RD2)`);
         }
         ok = writer.write(rows, encoding);
       }
