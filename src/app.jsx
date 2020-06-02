@@ -30,8 +30,8 @@ class ReviewApp extends React.Component {
   }
 
   componentDidMount() {
-    // this.getReviews();
-    this.getAll();
+    this.getReviews();
+    //this.getAll();
   }
 
   getAll() {
@@ -52,7 +52,7 @@ class ReviewApp extends React.Component {
   }
 
   getReviews() {
-    fetch(`http://127.0.0.1:1128/reviews/${this.state.product}`)
+    fetch(`http://127.0.0.1:1128/api/products/1/reviews`)
       .then((data) => data.json())
       .then((reviews) => {
         console.log('reviews', reviews);

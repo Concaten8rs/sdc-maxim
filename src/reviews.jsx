@@ -6,7 +6,7 @@ const Reviews = ({ reviews }) => (
   <div>
     {
       reviews.map((review) => (
-        <Review review={review} key={review._id}/>
+        <Review review={review} key={review.review_id}/>
       ))
     }
   </div>

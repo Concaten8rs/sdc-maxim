@@ -24,7 +24,7 @@ const LeftReview = ({ review }) => {
       </div>
       <Stars review={review} />
       <div className={styles['reviewer-name']}>
-        {review.name} - {displayDate}
+        {review.username} - {displayDate}
       </div>
     </div>
     <div className={styles['review-content']}>
