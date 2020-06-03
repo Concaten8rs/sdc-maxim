@@ -33,3 +33,9 @@ CREATE TABLE reviews (
 -- COPY reviews (product_id,review_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/cqlReviewData1.csv';
 
 -- COPY reviews (product_id,review_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/Users/maximrietveld/git/sdc/sdc-maxim/sdc-server/lib/data/cqlReviewData2.csv';
+
+COPY products (product_id,product_name,product_stars) FROM '/sdc-maxim/sdc-server/lib/data/cqlProductData.csv';
+
+COPY reviews (product_id,review_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/sdc-maxim/sdc-server/lib/data/cqlReviewData1.csv';
+
+COPY reviews (product_id,review_id,title,username,stars,verified,date,content,comfort,style,value,sizing,photo) FROM '/sdc-maxim/sdc-server/lib/data/cqlReviewData2.csv';
