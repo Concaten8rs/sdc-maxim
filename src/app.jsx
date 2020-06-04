@@ -65,7 +65,7 @@ class ReviewApp extends React.Component {
   }
 
   getReviewsEC2() {
-    fetch(`http://52.53.255.152:1128/api/products/${randomNum}/reviews`)
+    fetch(`http://184.169.210.225:1128/api/products/${randomNum}/reviews`)
       .then((data) => data.json())
       .then((reviews) => {
         console.log('reviews', reviews);
