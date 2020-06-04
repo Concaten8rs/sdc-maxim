@@ -11,6 +11,7 @@
     "server:dev": "nodemon ./server/index.js",
     "server:start": "node ./dist/server.js",
     "server:dev:sdc": "nodemon ./sdc-server/index.js",
+    "server:start:sdc": "node ./sdc-server/index.js",
     "seed:mongo": "node ./server/lib/seedDatabase.js",
     "seedStatic:mongo": "node ./server/lib/seedStatic.js",
     "seed:psql": "psql -U postgres < schema.sql",
@@ -18,7 +19,7 @@
     "genData:psql": "",
     "genData:cql": "./cqlDataGenPrep.sh && node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlProductsData.js && node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlReviewsData1.js && node --max-old-space-size=6144 ./sdc-server/lib/generators/cqlReviewsData2.js",
     "genData:cqlEC2": "./cqlDataGenPrep.sh && node ./sdc-server/lib/generators/cqlProductsData.js && node ./sdc-server/lib/generators/cqlReviewsData1.js && node ./sdc-server/lib/generators/cqlReviewsData2.js",
-    "k6": "k6 run load-testing/k6.js --vus 100 --duration 60s"
+    "k6": "k6 run load-testing/k6.js --vus 150 --duration 60s"
   },
   "repository": {
     "type": "git",
