@@ -20,6 +20,8 @@ let sampleReview = {
   photo: 'false',
 };
 
+let randomNum = Math.floor(Math.random() * 10000000);
+
 class ReviewApp extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +65,7 @@ class ReviewApp extends React.Component {
   }
 
   getReviewsEC2() {
-    fetch(`http://52.53.255.152:1128/api/products/1/reviews`)
+    fetch(`http://52.53.255.152:1128/api/products/${randomNum}/reviews`)
       .then((data) => data.json())
       .then((reviews) => {
         console.log('reviews', reviews);
